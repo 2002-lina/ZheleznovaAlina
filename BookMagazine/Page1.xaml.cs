@@ -119,6 +119,7 @@ namespace BookMagazine
         }
         int k = 0;
         int price_cost = 0;
+        int Skidka_ot_coast = 0;
 
         private void DGDobav_Click(object sender, RoutedEventArgs e)
         {
@@ -133,12 +134,23 @@ namespace BookMagazine
             price_cost += price;
             coun_book_pok.Text = price_cost + " руб";
             skidka.Text = 0 + "%";
+
+            double one_skid = price_cost / 500;
+            Skidka_ot_coast = Convert.ToInt32(Math.Truncate(one_skid)); // подсчет скидки 1% с каждых 500 рублей
+            if (Skidka_ot_coast != 0)
+            {
+                coun_book_pok.Text =(price_cost+ Skidka_ot_coast) + " руб";
+            }
+       
+           
             if ( k>3 || k==3 )
             {
                 coun_book_pok_star.TextDecorations = TextDecorations.Strikethrough;
                 coun_book_pok_star.Text = price_cost.ToString() +" ";
                 coun_book_pok.Text = (price_cost-((price_cost/100)*5)) + " руб";
                 skidka.Text = 5 + "%";
+               
+
             }
             if (k == 5 || k>5)
             {
@@ -154,6 +166,7 @@ namespace BookMagazine
                 coun_book_pok.Text = (price_cost - ((price_cost / 100) * 15)) + " руб";
                 skidka.Text = 15 + "%";
             }
+            
         }
 
         }
