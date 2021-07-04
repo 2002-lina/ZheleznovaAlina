@@ -19,6 +19,7 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Цена покупки: "  Style="{StaticResource Title}"></TextBlock>
+                        <TextBlock Name="coun_book_pok_star" />
                         <TextBlock Name="coun_book_pok" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">

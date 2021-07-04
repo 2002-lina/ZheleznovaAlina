@@ -118,6 +118,8 @@ namespace BookMagazine
 
         }
         int k = 0;
+        int price_cost = 0;
+
         private void DGDobav_Click(object sender, RoutedEventArgs e)
         {
             Button DGDobav = (Button)sender;
@@ -127,7 +129,31 @@ namespace BookMagazine
             Pokupka.Visibility = Visibility.Visible;
             k++;
             coun_book.Text = Convert.ToString( + k) ;
-            coun_book_pok.Text = Convert.ToString(S.Цена+S.Цена) + " руб";
+            int price = S.Цена;
+            price_cost += price;
+            coun_book_pok.Text = price_cost + " руб";
+            skidka.Text = 0 + "%";
+            if ( k>3 || k==3 )
+            {
+                coun_book_pok_star.TextDecorations = TextDecorations.Strikethrough;
+                coun_book_pok_star.Text = price_cost.ToString() +" ";
+                coun_book_pok.Text = (price_cost-((price_cost/100)*5)) + " руб";
+                skidka.Text = 5 + "%";
+            }
+            if (k == 5 || k>5)
+            {
+                coun_book_pok_star.TextDecorations = TextDecorations.Strikethrough;
+                coun_book_pok_star.Text = price_cost.ToString() + " ";
+                coun_book_pok.Text = " " + (price_cost - ((price_cost / 100) * 10)) + " руб";
+                skidka.Text = 10 + "%";
+            }
+            if (k == 10 || k > 10)
+            {
+                coun_book_pok_star.TextDecorations = TextDecorations.Strikethrough;
+                coun_book_pok_star.Text = price_cost.ToString() + " ";
+                coun_book_pok.Text = (price_cost - ((price_cost / 100) * 15)) + " руб";
+                skidka.Text = 15 + "%";
+            }
         }
 
         }
