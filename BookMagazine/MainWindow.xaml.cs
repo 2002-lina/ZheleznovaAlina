@@ -20,9 +20,14 @@ namespace BookMagazine
     /// </summary>
     public partial class MainWindow : Window
     {
+
         public MainWindow()
         {
             InitializeComponent();
+            Base.E = new Entities();
+            frm.Navigate(new Page1());
+
+
         }
     }
 }
